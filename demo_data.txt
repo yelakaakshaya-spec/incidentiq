@@ -1,0 +1,8 @@
+Optional demo memory to seed manually:
+
+IncidentIQ experience:
+Incident: Payment API returned 503 errors after deployment v2.4.
+Confirmed root cause: Database connection pool was exhausted.
+Resolution that worked: Increased database connection pool from 50 to 100 and restarted affected application instances.
+Runbook used: Database Connection Troubleshooting.
+Lesson: For future Payment API 503 incidents after deployment, check database connection utilization and pool settings early, but verify current evidence before changing production configuration.
