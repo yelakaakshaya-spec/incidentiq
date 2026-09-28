@@ -1,77 +1,83 @@
-# IncidentIQ — AI Incident Response Agent
+# 🚨 IncidentIQ — AI Incident Response Agent
 
-IncidentIQ is a hackathon prototype that uses **Hindsight persistent memory** to help engineering teams respond to production incidents.
+> **Turn every production incident into future experience.**
 
-## Core learning loop
+IncidentIQ is an AI-powered incident response agent for software engineering and DevOps teams.
 
-1. Engineer reports an incident.
-2. Agent searches Hindsight for similar incidents.
-3. If no relevant memory exists, the agent starts a new investigation.
-4. Engineer confirms the root cause and resolution.
-5. IncidentIQ stores the experience in Hindsight.
-6. A future similar incident can recall the previous experience.
+It uses **Hindsight persistent memory** to remember previous production incidents, confirmed root causes, resolutions, runbooks, and lessons learned.
 
-## Official technology
+When a similar incident happens again, IncidentIQ recalls relevant past experience and helps engineers investigate the current incident.
 
-- Hindsight Python client: `hindsight-client`
-- Hindsight Cloud API
-- Groq for LLM reasoning
-- Flask for the web application
+### Core Learning Loop
 
-Hindsight is the required memory layer for the hackathon.
+**Incident → Recall → Reason → Resolve → Learn → Improve**
 
-## Run locally
+---
 
-```powershell
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-copy .env.example .env
-```
+## 🌐 Live Demo
 
-Open `.env` and add your Hindsight and Groq keys.
+🚀 **Live Application:**  
+https://incidentiq-b0o6.onrender.com
 
-Then:
+💻 **GitHub Repository:**  
+https://github.com/yelakaakshaya-spec/incidentiq
 
-```powershell
-python app.py
-```
+---
 
-Open:
+## 🎯 Problem
 
-`http://127.0.0.1:5000`
+Production incidents are time-sensitive and often require engineers to search through:
 
-## Demo flow
+- Previous incident reports
+- Post-mortems
+- Troubleshooting notes
+- Runbooks
+- Previous resolutions
+- Historical operational knowledge
 
-### Demo 1 — first-time incident
+Important knowledge can be difficult to retrieve when an incident is happening.
 
-Use:
+### The Problem
 
-> Payment API is returning 503 errors after deployment v2.4. Customers cannot complete payments.
+> **How can an AI incident-response agent remember previous incidents and use that experience during future incidents?**
 
-The agent should show that no relevant memory exists.
+---
 
-### Demo 2 — teach the agent
+## 💡 Solution
 
-Enter:
+IncidentIQ combines:
 
-Root cause:
-> Database connection pool exhausted.
+- 🧠 **Hindsight** — persistent AI memory
+- 🤖 **Groq** — LLM reasoning
+- 🌐 **Flask** — backend application
+- 🎨 **HTML/CSS/JavaScript** — interactive dashboard
+- ☁️ **Render** — deployment
 
-Resolution:
-> Increased connection pool from 50 to 100.
+When an incident is reported, IncidentIQ:
 
-Runbook:
-> Database Connection Troubleshooting.
+1. Understands the current incident.
+2. Searches Hindsight for relevant historical experience.
+3. Retrieves previous incidents and resolutions.
+4. Uses historical information as evidence.
+5. Helps the engineer investigate the current incident.
+6. Allows the engineer to record the confirmed resolution.
+7. Stores the new experience in Hindsight.
+8. Uses that experience during future incidents.
 
-Click **Save Experience to Memory**.
+---
 
-### Demo 3 — recall
+# 🧠 Hindsight Memory
 
-Run the same or a similar incident again.
+Memory is the central feature of IncidentIQ.
 
-The agent should retrieve the stored experience from Hindsight and show it under **Hindsight Memory**.
+The agent does not rely only on the current prompt.
 
-## Important
+It can recall persistent information from previous incidents.
 
-Never commit `.env` or API keys to GitHub.
+### Example
+
+### First Incident
+
+```text
+Payment API is returning 503 errors after deployment.
+Customers cannot complete payments.
